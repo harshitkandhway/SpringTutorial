@@ -1,0 +1,24 @@
+Day 2 Spring
+
+Scope : by default singleton
+2 classes working on same object
+
+@Value
+
+Initialization bean
+init method : post construct(Object is created and all the values are populated)
+- When we require an external service
+- File handlers
+
+Pre destroyer method
+
+2)@Autowired
+3)@PostConstruct
+
+Working with @Scope("prototype")
+Difference between @Autuwired and @Value
+
+Woking with Extension in JUnit5
+Working with Runners in Junit4
+
+Servlet,MVC

@@ -1,0 +1,37 @@
+Day 1
+Beans in Spring are singleton by nature.
+Which means :
+GuestbookService guestbookService1 = injector.getBean(GuestbookService.class);
+GuestbookService guestbookService2 = injector.getBean(GuestbookService.class);
+
+Both objects guestbookService1 and guestbookService2 are same;
+
+Issue explanation
+org.springframework.beans.factory.NoUniqueBeanDefinitionException: No qualifying bean 
+of type 'dipractice.SpamChecker' available: expected single matching bean but 
+found 2: englishSpamChecker,frenchSpamChecker
+
+Decorator pattern
+
+@Configuration -> We can create a bean by ourself
+@Bean -> Spring will know and take this bean instead of creating a bean on its own,
+can be only mentioned in @ Configuration class, more than one Configuration class can exist
+
+@ComponentScan -> We can define the base package
+@ComponentScan(basepackage{"package1","package2"})
+@Import(SomeClass.class)
+
+XML Based configuration for spring
+@ImportResource
+
+
+XMLBased -> Annotation -> Java Configuration
+Spring Documentation
+
+wednesday
+SpringMVC,
+SpringDatabase and JPA
+
+next Week
+SpringBoot
+
