@@ -1,0 +1,112 @@
+Day 3 
+Java -> Server side 
+Web -> Client side
+ HTML -> Static
+ Servlets is the component in java that helps for dynamic nature unlike the static HTML rendering.
+
+
+How angular works
+1) Controller
+2) template ->HTML page
+3) model
+
+2 way binding in angular but not in java(We send the request)
+In java we send the request 
+
+Object at the back is model.
+View is the HTML template.(rendering view)
+
+Spring MVC(Model View Controller)
+Model is the state of the object.
+
+1) HTTP is a 1 way protocol, we can only get response only when we send request.
+Due to HTTP we cant provide MVC feature to servelets.
+
+Stateless protocol
+
+MVC2 -> Web MVC
+
+JAR(Java)
+WAR(Web)
+EAR(Enterprise)
+
+1) Change the packaging element to war 
+<packaging>war</packaging>
+
+2) Web.xml is the starting point for servelet.
+
+servelet has 3 methods :
+1)init()
+2)service()
+3)destroy()
+
+Notes:
+DispatcherServlet roots the request to specific Controller.
+Controller is a class having @Controller annotation.
+It is the central piece, keeps the mapping of which request should go to 
+which controller.
+
+facade design pattern
+facade is the entry point of your system.
+It delegates the call to the appropraite service
+
+decorator design pattern 
+It adds extra information for appropriate service.
+
+Presentation Layer -> includes servlets and the HTML
+Front Controller is the dispatcherServlet
+
+MVC is valid for frontend.
+
+WEB-INF folder should always contain web.xml file which is used by the dispatcherServlet
+
+guestbook-web.xml
+<mvc:annotation-driven/> would read classes @Cotroller from the package
+<context:component-scan base-package="guestbook.controller"/>
+
+templating technologies
+velocity,strut,thymeleaf,tiles
+templateResolver is used by Spring to render specific view.
+<bean id="templateResolver"
+          class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
+        <property name="prefix" value="/WEB-INF/views/" />
+        <property name="suffix" value=".html" />
+        <property name="templateMode" value="HTML5" />
+    </bean>
+Without this we need to return entire HTML element for every return statment for all request.
+
+Use Maven archetype, for creating web application to get few templated files like web.xml 
+
+Servelet is the specification and version 2.5 ,2.0 or 3.0 is decided 
+on the basis of tomcat supporting.
+
+Templating engine like thymeleaf is not limited to html UI,rather we can generate pdf reports, 
+send emails ,etc
+
+When we return "guestbook" the guestbook.html file in the view in WEB-INF folder
+is returned.
+
+To run the project we need the jetty plugin.
+thymeleaf syntax
+1) "${latest.name}" -> to get the value of the field.
+2) 
+
+Http response code:
+Informational responses (100–199),
+Successful responses (200–299),
+Redirects (300–399),
+Client errors (400–499),
+and Server errors (500–599).
+
+Get does not have a body or data
+Post has content
+
+Keywords in response
+1) "redirect:/" -> It comes to the client side,can redirect a GET to POST.(code : 302)
+
+2) "forward:/" -> This does not comes at client side which means there is no response code shown at client side
+server forwards with same datatype ,it is a permanent redirect
+
+Tasks(rahul0208)
+1) Call the service and save the values in some datastructure.
+2) Display all the values in tabular structure.

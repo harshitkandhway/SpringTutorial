@@ -1,0 +1,94 @@
+Day 2 Learnings
+
+New topics:
+1) Spring IOC(Inversion of Control) container
+2) Spring's AOP technologies(Aspect Oriented Progamming)
+    Aspect Oriented Programming is a programming paradigm where
+    we focus on Separation of Concern that is we group features and behaviour
+    into manageable parts which all have a specific purpose.
+    Example : Security for a content hosting site.
+
+Spring Framework has its own AOP framework.
+AOP requirements in java enterprise programming
+
+Spring's integration with AspectJ(currently the richest
+ -in terms of features 
+ -and certainly most mature AOP implementation in the Java enterprise space)
+
+ Spring IoC Container
+ We will be studying about spring framework's implementation of IoC princeple. 
+ 1) IOC principle is also known as DI(Dependency Injection)
+ It is the process by which objects define their dependencies 
+ only through 
+ - constructor argument.
+ - arguments to a factory method
+ - properties that are set on the object instance after it is constructed 
+ or returned from a factory method.
+ 
+ The container injects these dependencies while creating the beans
+
+This is a inverse process where instead of a bean controlling the dependencies
+by using direct construction of classes or a mechanism such as Service Locator Pattern
+We have container that injects the dependencies when it creates the bean.
+
+Packages required for SpringFramework IOC container are:
+1) org.springframework.beans
+2) org.springframework.context
+
+BeanFactory is an interface which provides an advanced configuration 
+mechanism capable of managing any type of object.
+
+ApplicationContext is a sub-interface of BeanFactory which adds:
+1) Easier integration with Spring's AOP features.
+2) Message resourse handling(for use in internationalization)
+3) Event publication
+4) Application-layer specific contexts such as WebApplicationContext
+for use in web applications.
+
+BeanFactory is an interface which provides :
+1) Configuration framework
+2) Basic functionality
+
+ApplicationContext is a sub-interface of BeanFactory which provides:
+1) More enterprise specific functionality.
+
+ApplicationContext is a complete superset of BeanFactory.
+
+Beans
+In spring the objects that are managed by Spring IoC Container are 
+called as beans.
+Beans and their dependencies are reflected in the configuration
+metadata used by a container.
+
+Containers
+The org.springframework.context.ApplicationContext is an interface that
+represents Spring IoC container and is responsible for instantiating,
+configuring, and assembling the beans.
+
+The container gets the instruction on what objects to initialize,
+configure and assemble by reading configuration metadata.These configuration 
+metadata are represented as:
+1) XML Configurations
+2) Java Annotations
+3) Java Codes
+
+As we know ApplicationContext is an interface Spring provides various implementation
+on its own.
+XML Configuration
+1) ClassPathXmlApplicationContext
+2) FileSystemXmlApplicationContext
+
+@Bean annotation is used to indicate that a method instantiates,
+configures and initailizes a new object to be managed by Spring IoC Container
+
+In terms of XML Based configuration => @Bean annotation is similar to <bean> element.
+We can use @Bean annotaion with Spring's
+1) @Component
+2) @Configuration (mostly used with this)
+
+@Configuration
+1) The class having this annotation indicates Spring that the class 
+acts as source of the beans definitions.
+2) It let inter-bean dependencies be defined by calling other @Bean 
+methods in the same class.
+
